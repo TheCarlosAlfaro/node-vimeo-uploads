@@ -1,13 +1,16 @@
-require("dotenv").config();
-const fs = require("fs");
-const Vimeo = require("vimeo").Vimeo;
+require('dotenv').config();
+const fs = require('fs');
+const Vimeo = require('vimeo').Vimeo;
 const vimeo_account = new Vimeo(
   process.env.VIMEO_CLIENT_ID,
   process.env.VIMEO_CLIENT_SECRET,
   process.env.VIMEO_ACCESS_TOKEN
 );
 
-const files_path = "/Users/devbysalas/Documents/DEMO day/Videos/";
+const date_fns = require('date-fns');
+const demo_date = date_fns.format(new Date(), 'MMMM Do, YYYY');
+
+const files_path = '/Users/devbysalas/Documents/DEMO day/Videos/';
 
 const demo_day_video_description = `
 Check out Las Vegas Developers at:
@@ -28,20 +31,18 @@ Dot Vegas
 http://the.vegas/
 `;
 
-const demo_date = new Date().toISOString().slice(0, 10);
-
 const video_info = {
   date: demo_date,
-  title: "Demo Day",
+  title: 'Demo Day',
   description: demo_day_video_description
 };
 
 const presenters_names = [
-  "Mike Zetlow",
-  "Carlos Alfaro",
-  "Juan Perez",
-  "Erick DeLeon",
-  "Joe Smiths"
+  'Mike Zetlow',
+  'Carlos Alfaro',
+  'Juan Perez',
+  'Erick DeLeon',
+  'Joe Smiths'
 ];
 
 const all_videos = fs.readdirSync(files_path);
@@ -65,14 +66,14 @@ function upload_videos(videos_dir, all_videos, video_info) {
         description: `${video_info.description}`
       },
       function(uri) {
-        console.log("Your video URI is: " + uri);
+        console.log('Your video URI is: ' + uri);
       },
       function(bytes_uploaded, bytes_total) {
         var percentage = ((bytes_uploaded / bytes_total) * 100).toFixed(2);
-        console.log(bytes_uploaded, bytes_total, percentage + "%");
+        console.log(bytes_uploaded, bytes_total, percentage + '%');
       },
       function(error) {
-        console.log("Failed because: " + error);
+        console.log('Failed because: ' + error);
       }
     );
   });
