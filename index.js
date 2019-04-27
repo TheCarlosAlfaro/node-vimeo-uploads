@@ -15,7 +15,7 @@ const demo_date = date_fns.format(
 );
 console.log(demo_date);
 
-const files_path = '/Users/devbysalas/Dropbox/DEMO day/Videos/';
+const files_path = '/Users/devbysalas/Dropbox/DEMO day/real-videos/';
 
 const demo_day_video_description = `
     Filmed at Demo Day Las Vegas on ${demo_date}. More at https://developers.vegas
@@ -23,16 +23,16 @@ const demo_day_video_description = `
     Thanks to our sponsors:
     
     Innevation
-    innevation.com/
+    https://innevation.com/
     
     Vehicle History
-    vehiclehistory.com/
+    https://vehiclehistory.com/
     
     CHSI Technologies
-    chsiconnections.com/
+    https://chsiconnections.com/
     
     Dot Vegas
-    the.vegas/
+    https://the.vegas/
     `;
 
 fs.appendFileSync(`${demo_date} presentations.json`, `[`);
