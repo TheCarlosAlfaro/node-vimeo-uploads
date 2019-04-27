@@ -1,4 +1,5 @@
 require('dotenv').config();
+const presenter_list = require('./presenter_list.js');
 const fs = require('fs');
 const Vimeo = require('vimeo').Vimeo;
 const vimeo_account = new Vimeo(
@@ -8,42 +9,31 @@ const vimeo_account = new Vimeo(
 );
 
 const date_fns = require('date-fns');
-const demo_date = date_fns.format(new Date(), 'MMMM Do, YYYY');
+const demo_date = date_fns.format(
+  presenter_list[0].event.date,
+  'MMMM Do, YYYY'
+);
+console.log(demo_date);
 
-const files_path = '/Users/devbysalas/Documents/DEMO day/Videos/';
+const files_path = '/Users/devbysalas/Dropbox/DEMO day/Videos/';
 
 const demo_day_video_description = `
-Check out Las Vegas Developers at:
-http://developers.vegas/
+Filmed at Demo Day Las Vegas on ${demo_date}. More at https://developers.vegas
 
 Thanks to our sponsors:
 
 Innevation
-https://innevation.com/
+innevation.com/
 
 Vehicle History
-http://vehiclehistory.com/
+vehiclehistory.com/
 
 CHSI Technologies
-https://chsiconnections.com/
+chsiconnections.com/
 
 Dot Vegas
-http://the.vegas/
+the.vegas/
 `;
-
-const video_info = {
-  date: demo_date,
-  title: 'Demo Day',
-  description: demo_day_video_description
-};
-
-const presenters_names = [
-  'Mike Zetlow',
-  'Carlos Alfaro',
-  'Juan Perez',
-  'Erick DeLeon',
-  'Joe Smiths'
-];
 
 const all_videos = fs.readdirSync(files_path);
 
@@ -56,14 +46,16 @@ all_videos.sort(function(a, b) {
 
 function upload_videos(videos_dir, all_videos, video_info) {
   all_videos.forEach((video, index) => {
+    // console.log(video_info[index]['member']['first_name']);
+
     let file_name = `${videos_dir}${video}`;
     vimeo_account.upload(
       file_name,
       {
-        name: `${video_info.date} - ${video_info.title} - ${
-          presenters_names[index]
-        }`,
-        description: `${video_info.description}`
+        name: `${video_info[index].member.first_name} ${
+          video_info[index].member.last_name
+        } - ${video_info[index].presentation.title}`,
+        description: `${demo_day_video_description}`
       },
       function(uri) {
         console.log('Your video URI is: ' + uri);
@@ -79,4 +71,4 @@ function upload_videos(videos_dir, all_videos, video_info) {
   });
 }
 
-upload_videos(files_path, all_videos, video_info);
+// upload_videos(files_path, all_videos, presenter_list);
