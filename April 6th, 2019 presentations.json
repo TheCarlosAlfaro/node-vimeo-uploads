@@ -1,0 +1,33 @@
+[
+  {
+    "event": { "date": "2019-04-06" },
+    "member": { "row_id": 366, "first_name": "Eugene", "last_name": "Bondari" },
+    "presentation": {
+      "title": "Tree Iteration",
+      "is_active": true,
+      "order": 0,
+      "video_screenshot_url": "https://i.vimeocdn.com/video/default_295x166?r=pad",
+      "video_screenshot_with_play_url": "https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2Fdefault_295x166&src1=http%3A%2F%2Ff.vimeocdn.com%2Fp%2Fimages%2Fcrawler_play.png",
+      "video_url": "https://vimeo.com/332885566",
+      "video_iframe": "<iframe src=\"https://player.vimeo.com/video/332885566?badge=0&autopause=0&player_id=0&app_id=146228\" width=\"400\" height=\"300\" frameborder=\"0\" title=\"Eugene Bondari - Tree Iteration\" allow=\"autoplay; fullscreen\" allowfullscreen></iframe>"
+    }
+  },
+  {
+    "event": { "date": "2019-04-06" },
+    "member": { "row_id": 304, "first_name": "Andrew", "last_name": "Yasso" },
+    "presentation": {
+      "title": "Before & After Photos",
+      "is_active": true,
+      "order": 1,
+      "video_screenshot_url": "https://i.vimeocdn.com/video/default_295x166?r=pad",
+      "video_screenshot_with_play_url": "https://i.vimeocdn.com/filter/overlay?src0=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2Fdefault_295x166&src1=http%3A%2F%2Ff.vimeocdn.com%2Fp%2Fimages%2Fcrawler_play.png",
+      "video_url": "https://vimeo.com/332885565",
+      "video_iframe": "<iframe src=\"https://player.vimeo.com/video/332885565?badge=0&autopause=0&player_id=0&app_id=146228\" width=\"400\" height=\"300\" frameborder=\"0\" title=\"Andrew Yasso - Before &amp; After Photos\" allow=\"autoplay; fullscreen\" allowfullscreen></iframe>"
+    },
+    "technologies": [
+      { "id": 1, "name": "JavaScript", "popularity": 60 },
+      { "id": 66, "name": "Node.js", "popularity": 50 },
+      { "id": 118, "name": "Chrome extension", "popularity": 40 }
+    ]
+  }
+]
