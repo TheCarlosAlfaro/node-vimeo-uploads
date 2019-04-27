@@ -46,8 +46,6 @@ all_videos.sort(function(a, b) {
 
 function upload_videos(videos_dir, all_videos, video_info) {
   all_videos.forEach((video, index) => {
-    // console.log(video_info[index]['member']['first_name']);
-
     let file_name = `${videos_dir}${video}`;
     vimeo_account.upload(
       file_name,
@@ -59,6 +57,20 @@ function upload_videos(videos_dir, all_videos, video_info) {
       },
       function(uri) {
         console.log('Your video URI is: ' + uri);
+
+        vimeo_account.request(
+          {
+            method: 'PUT',
+            path: `/channels/1449073${uri}`
+          },
+          function(error, body, status_code, headers) {
+            if (error) {
+              console.log(error, body, status_code, headers);
+            }
+
+            console.log(body);
+          }
+        );
       },
       function(bytes_uploaded, bytes_total) {
         var percentage = ((bytes_uploaded / bytes_total) * 100).toFixed(2);
@@ -71,4 +83,4 @@ function upload_videos(videos_dir, all_videos, video_info) {
   });
 }
 
-// upload_videos(files_path, all_videos, presenter_list);
+upload_videos(files_path, all_videos, presenter_list);
