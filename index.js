@@ -106,7 +106,7 @@ function upload_videos(videos_dir, all_videos, video_info) {
             vimeo_response.push(video_obj);
 
             // Creates a .json file when uploads are done.
-            if (vimeo_response.length == presenter_list.length) {
+            if (vimeo_response.length === presenter_list.length) {
               console.log(
                 `${demo_date} presentations.json should be ready soon`
               );
